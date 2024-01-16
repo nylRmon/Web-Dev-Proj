@@ -1,33 +1,36 @@
-// App.js
 import React, { useState } from "react";
 import "./App.css";
-//log in
-const LoginForm = ({ onLogin, onToggleSignup }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+import { useForm } from "react-hook-form";
 
-  const handleLogin = () => {
-    onLogin(username);
+const LoginForm = ({ onLogin, onToggleSignup }) => {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const onSubmit = (data) => {
+    onLogin(data.username);
   };
 
   return (
     <div className="container">
       <h2>Login</h2>
-      <label>Email:</label>
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <br />
-      <label>Password:</label>
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <br />
-      <button onClick={handleLogin}>Login</button>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label>Email:</label>
+        <input
+          type="text"
+          {...register("username", { required: "Username is required" })}
+        />
+        <br />
+        {errors.username && <p>{errors.username.message}</p>}
+        <br />
+        <label>Password:</label>
+        <input
+          type="password"
+          {...register("password", { required: "Password is required" })}
+        />
+        <br />
+        {errors.password && <p>{errors.password.message}</p>}
+        <br />
+        <button type="submit">Login</button>
+      </form>
       <br />
       <p>
         Don't have an account? <button onClick={onToggleSignup}>Sign Up</button>
@@ -35,36 +38,39 @@ const LoginForm = ({ onLogin, onToggleSignup }) => {
     </div>
   );
 };
-// for sign up
-const SignupForm = ({ onSignup, onToggleSignup }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
 
-  const handleSignup = () => {
-    onSignup(username);
-    console.log("Username:", username);
-    console.log("Password:", password);
+const SignupForm = ({ onSignup, onToggleSignup }) => {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const onSubmit = (data) => {
+    onSignup(data.username);
+    console.log("Username:", data.username);
+    console.log("Password:", data.password);
   };
 
   return (
     <div className="overlay">
       <div className="container">
         <h2>Sign Up</h2>
-        <label>Username:</label>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <br />
-        <label>Password:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <br />
-        <button onClick={handleSignup}>Sign Up</button>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <label>Username:</label>
+          <input
+            type="text"
+            {...register("username", { required: "Username is required" })}
+          />
+          <br />
+          {errors.username && <p>{errors.username.message}</p>}
+          <br />
+          <label>Password:</label>
+          <input
+            type="password"
+            {...register("password", { required: "Password is required" })}
+          />
+          <br />
+          {errors.password && <p>{errors.password.message}</p>}
+          <br />
+          <button type="submit">Sign Up</button>
+        </form>
         <br />
         <p>
           Already have an account? <span onClick={onToggleSignup}>Log In</span>
@@ -73,7 +79,7 @@ const SignupForm = ({ onSignup, onToggleSignup }) => {
     </div>
   );
 };
-// this is the after log in pede natin dito ipasok yung main program mwahahh
+
 const Forum = ({ user }) => {
   return (
     <div>
