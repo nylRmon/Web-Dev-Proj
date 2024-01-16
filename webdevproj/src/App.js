@@ -1,10 +1,10 @@
 // App.js
-import React, { useState } from 'react';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 //log in
 const LoginForm = ({ onLogin, onToggleSignup }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = () => {
     onLogin(username);
@@ -14,24 +14,36 @@ const LoginForm = ({ onLogin, onToggleSignup }) => {
     <div className="container">
       <h2>Login</h2>
       <label>Email:</label>
-      <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+      <input
+        type="text"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
       <br />
       <label>Password:</label>
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
       <br />
       <button onClick={handleLogin}>Login</button>
       <br />
-      <p>Don't have an account? <span onClick={onToggleSignup}>Sign Up</span></p>
+      <p>
+        Don't have an account? <button onClick={onToggleSignup}>Sign Up</button>
+      </p>
     </div>
   );
 };
 // for sign up
 const SignupForm = ({ onSignup, onToggleSignup }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSignup = () => {
     onSignup(username);
+    console.log("Username:", username);
+    console.log("Password:", password);
   };
 
   return (
@@ -39,14 +51,24 @@ const SignupForm = ({ onSignup, onToggleSignup }) => {
       <div className="container">
         <h2>Sign Up</h2>
         <label>Username:</label>
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
         <br />
         <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <br />
         <button onClick={handleSignup}>Sign Up</button>
         <br />
-        <p>Already have an account? <span onClick={onToggleSignup}>Log In</span></p>
+        <p>
+          Already have an account? <span onClick={onToggleSignup}>Log In</span>
+        </p>
       </div>
     </div>
   );
@@ -71,7 +93,7 @@ const App = () => {
 
   const handleSignup = (username) => {
     setUser(username);
-    setShowSignup(false); 
+    setShowSignup(false);
   };
 
   const handleToggleSignup = () => {
@@ -86,7 +108,10 @@ const App = () => {
         <Forum user={user} />
       )}
       {showSignup && (
-        <SignupForm onSignup={handleSignup} onToggleSignup={handleToggleSignup} />
+        <SignupForm
+          onSignup={handleSignup}
+          onToggleSignup={handleToggleSignup}
+        />
       )}
     </div>
   );
