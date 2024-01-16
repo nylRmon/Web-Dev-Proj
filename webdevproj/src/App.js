@@ -3,8 +3,6 @@ import "./App.css";
 import { useForm } from "react-hook-form";
 
 const LoginForm = ({ onLogin, onToggleSignup }) => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-
   const onSubmit = (data) => {
     onLogin(data.username);
   };
@@ -40,7 +38,6 @@ const LoginForm = ({ onLogin, onToggleSignup }) => {
 };
 
 const SignupForm = ({ onSignup, onToggleSignup }) => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
     onSignup(data.username);
