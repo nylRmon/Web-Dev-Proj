@@ -1,8 +1,18 @@
 import React, { useState } from "react";
-import "./App.css";
 import { useForm } from "react-hook-form";
+import "./App.css"; 
+import {
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Routes,
+  useParams,
+  useNavigate,
+} from "react-router-dom";
 
 const LoginForm = ({ onLogin, onToggleSignup }) => {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
   const onSubmit = (data) => {
     onLogin(data.username);
   };
@@ -38,6 +48,7 @@ const LoginForm = ({ onLogin, onToggleSignup }) => {
 };
 
 const SignupForm = ({ onSignup, onToggleSignup }) => {
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
     onSignup(data.username);
@@ -77,11 +88,52 @@ const SignupForm = ({ onSignup, onToggleSignup }) => {
   );
 };
 
+const ForumHome = ({ user }) => (
+  <div>
+    <h2>Welcome to the Community! {user}!</h2>
+    <p>Welcome to the TUP Community .</p>
+  </div>
+);
+
+const ForumProducts = () => (
+  <div>
+    <h2>Products</h2>
+    <p>Explore the latest and discussions.</p>
+  </div>
+);
+
+const ForumOrders = () => (
+  <div>
+    <h2>Orders</h2>
+    <p>View and your orders.</p>
+  </div>
+);
+
 const Forum = ({ user }) => {
+  const navigate = useNavigate();
+  const { id } = useParams();
+
   return (
     <div>
-      <h2>Welcome, {user}!</h2>
-      <p>This is the forum. You can start discussing topics here.</p>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/products">Products</Link>
+          </li>
+          <li>
+            <Link to="/orders">Orders</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<ForumHome user={user} />} />
+        <Route path="/products" element={<ForumProducts />} />
+        <Route path="/orders" element={<ForumOrders />} />
+      </Routes>
     </div>
   );
 };
@@ -104,19 +156,21 @@ const App = () => {
   };
 
   return (
-    <div>
-      {!user ? (
-        <LoginForm onLogin={handleLogin} onToggleSignup={handleToggleSignup} />
-      ) : (
-        <Forum user={user} />
-      )}
-      {showSignup && (
-        <SignupForm
-          onSignup={handleSignup}
-          onToggleSignup={handleToggleSignup}
-        />
-      )}
-    </div>
+    <Router>
+      <div>
+        {!user ? (
+          <LoginForm onLogin={handleLogin} onToggleSignup={handleToggleSignup} />
+        ) : (
+          <Forum user={user} />
+        )}
+        {showSignup && (
+          <SignupForm
+            onSignup={handleSignup}
+            onToggleSignup={handleToggleSignup}
+          />
+        )}
+      </div>
+    </Router>
   );
 };
 
