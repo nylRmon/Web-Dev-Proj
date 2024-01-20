@@ -38,7 +38,6 @@ const LoginForm = ({ onLogin, onToggleSignup }) => {
 };
 
 const SignupForm = ({ onSignup, onToggleSignup }) => {
-
   const onSubmit = (data) => {
     onSignup(data.username);
     console.log("Username:", data.username);
