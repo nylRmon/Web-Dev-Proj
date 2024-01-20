@@ -51,14 +51,12 @@ const LoginForm = ({ onLogin, onToggleSignup }) => {
   );
 };
 
-// Import the useForm hook
-
 const SignupForm = ({ onSignup, onToggleSignup }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm(); // Use the useForm hook
+  } = useForm();
 
   const onSubmit = (data) => {
     onSignup(data.username);
@@ -72,7 +70,7 @@ const SignupForm = ({ onSignup, onToggleSignup }) => {
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           {" "}
-          {/* Use handleSubmit */}
+          {}
           <label>Username:</label>
           <input
             type="text"
