@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import "./App.css"; 
+import "./App.css";
 import {
   BrowserRouter as Router,
   Link,
@@ -11,7 +11,11 @@ import {
 } from "react-router-dom";
 
 const LoginForm = ({ onLogin, onToggleSignup }) => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = (data) => {
     onLogin(data.username);
@@ -47,7 +51,15 @@ const LoginForm = ({ onLogin, onToggleSignup }) => {
   );
 };
 
+// Import the useForm hook
+
 const SignupForm = ({ onSignup, onToggleSignup }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm(); // Use the useForm hook
+
   const onSubmit = (data) => {
     onSignup(data.username);
     console.log("Username:", data.username);
@@ -59,6 +71,8 @@ const SignupForm = ({ onSignup, onToggleSignup }) => {
       <div className="container">
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
+          {" "}
+          {/* Use handleSubmit */}
           <label>Username:</label>
           <input
             type="text"
@@ -157,7 +171,10 @@ const App = () => {
     <Router>
       <div>
         {!user ? (
-          <LoginForm onLogin={handleLogin} onToggleSignup={handleToggleSignup} />
+          <LoginForm
+            onLogin={handleLogin}
+            onToggleSignup={handleToggleSignup}
+          />
         ) : (
           <Forum user={user} />
         )}
