@@ -48,8 +48,6 @@ const LoginForm = ({ onLogin, onToggleSignup }) => {
 };
 
 const SignupForm = ({ onSignup, onToggleSignup }) => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-
   const onSubmit = (data) => {
     onSignup(data.username);
     console.log("Username:", data.username);
