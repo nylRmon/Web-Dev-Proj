@@ -12,9 +12,10 @@ function Header() {
       <div className="header__option">
         <span className="header__optionLineOne">Hello, User</span>
         <span className="header__optionLineTwo">Sign In or Sign Up</span>
+        <span className='header__optionLineTree'>Sell </span>
       </div>
     </nav>
   );
 }
 
-export default Header
+export default Header;
