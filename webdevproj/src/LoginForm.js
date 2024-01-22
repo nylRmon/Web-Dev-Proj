@@ -3,15 +3,16 @@ import { useForm } from 'react-hook-form'
 import { FaGoogle } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 
-const LoginForm = () => {
-  const { register, handleSubmit, errors } = useForm();
-  const history = useHistory();
 
-  const onSubmit = (data) => {
-    // Handle form submission here (e.g. send a request to the server)
-    // If the login is successful, redirect the user to the desired page
-    history.push('/dashboard');
-  };
+const LoginForm = () => {
+    const { register, handleSubmit, errors } = useForm();
+    const history = useHistory();
+
+    const onSubmit = (data) => {
+      // Handle form submission here (e.g. send a request to the server)
+      // If the login is successful, redirect the user to the desired page
+      history.push('/dashboard');
+    };
 
   return (
     <div className="container">
