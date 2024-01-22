@@ -10,14 +10,10 @@ import {
   useNavigate,
 } from "react-router-dom";
 <<<<<<< HEAD
-<<<<<<< HEAD
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import Forum from "./Forum";
-<<<<<<< HEAD
 =======
-=======
->>>>>>> parent of ea4d056 (pulled the latest files)
 
 const LoginForm = ({ onLogin, onToggleSignup }) => {
   const {
@@ -156,11 +152,6 @@ const Forum = ({ user }) => {
     </div>
   );
 };
-<<<<<<< HEAD
->>>>>>> parent of ea4d056 (pulled the latest files)
-=======
->>>>>>> parent of e6c9ef7 (Merge branch 'main' into tinao_test)
-=======
 >>>>>>> parent of ea4d056 (pulled the latest files)
 
 const App = () => {
