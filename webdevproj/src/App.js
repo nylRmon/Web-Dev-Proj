@@ -13,6 +13,7 @@ import {
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import Forum from "./Forum";
+<<<<<<< HEAD
 =======
 
 const LoginForm = ({ onLogin, onToggleSignup }) => {
@@ -153,6 +154,8 @@ const Forum = ({ user }) => {
   );
 };
 >>>>>>> parent of ea4d056 (pulled the latest files)
+=======
+>>>>>>> parent of e6c9ef7 (Merge branch 'main' into tinao_test)
 
 const App = () => {
   const [user, setUser] = useState(null);
