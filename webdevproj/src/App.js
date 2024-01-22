@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Routes,
-  useParams,
-  useNavigate,
-} from "react-router-dom";
+import {BrowserRouter as Router,Link,Route,Routes,useParams,useNavigate,} from "react-router-dom";
 
 const LoginForm = ({ onLogin, onToggleSignup }) => {
   const {
