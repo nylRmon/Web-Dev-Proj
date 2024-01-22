@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import "./App.css";
+
 import {
   BrowserRouter as Router,
   Link,
@@ -13,6 +14,7 @@ import {
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import Forum from "./Forum";
+<<<<<<< HEAD
 =======
 
 const LoginForm = ({ onLogin, onToggleSignup }) => {
@@ -153,6 +155,12 @@ const Forum = ({ user }) => {
   );
 };
 >>>>>>> parent of ea4d056 (pulled the latest files)
+=======
+import {BrowserRouter as Router,Link,Route,Routes,useParams, useNavigate,} from "react-router-dom";
+import LoginForm from "./LoginForm";  
+import SignupForm from "./SignupForm";  
+import Forum from "./Forum";  
+>>>>>>> e6c9ef7e035d867ca9ca50e20b8b51cedb069d09
 
 const App = () => {
   const [user, setUser] = useState(null);
