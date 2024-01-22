@@ -4,7 +4,7 @@ import "./App.css";
 import {BrowserRouter as Router,Link,Route,Routes,useParams, useNavigate,} from "react-router-dom";
 import LoginForm from "./LoginForm";  
 import SignupForm from "./SignupForm";  
-import Forum from "./Forum";  
+import Forum from "./Forum";    
 
 
 const App = () => {

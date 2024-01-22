@@ -1,29 +1,28 @@
-/*this is for log in */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+/* Login Form Styles */
 
 body {
-  background: #fff;
+  font-family: "Arial", sans-serif;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;  
 } 
 
 .container {
-  width: 330px;
-  padding: 2rem 1rem;
-  margin: 50px auto;
   background-color: #fff;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-left: auto; 
+  margin-right: 0; 
+  width: 300px; 
 }
 
 h2 {
-  font-size: 2rem;
-  color: #07001f;
-  margin-bottom: 1.2rem;
+  color: #333;
 }
 
 label {
@@ -51,10 +50,7 @@ button:hover {
   background-color: #0056b3;
 }
 
-
-/*for the home navigation */
-
-
+/* Home Navigation Styles */
 
 nav {
   background-color: #232f3e;
