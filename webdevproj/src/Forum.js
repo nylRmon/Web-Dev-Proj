@@ -25,7 +25,7 @@ const Forum = ({ user }) => {
       </nav>
 
       <Routes>
-        <Route path="/" element={<ForumHome user={user} />} />
+        <Route path="/" element={<Forumhome user={user} />} />
         <Route path="/products" element={<ForumProducts />} />
         <Route path="/orders" element={<ForumOrders />} />
       </Routes>
