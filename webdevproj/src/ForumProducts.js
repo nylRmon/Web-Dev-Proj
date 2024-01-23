@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ForumOrders from "./ForumOrders"; 
 
 const ForumProducts = () => {
   const [products, setProducts] = useState([
@@ -9,46 +10,19 @@ const ForumProducts = () => {
       image: "/appe2.jpg",
       category: "Apparel",
     },
-
-    {
-      id: 4,
-      name: "Produkto 3",
-      price: 20.00,
-      image: "/Assets/apparel1.jfif", 
-      category: "Apparel",
-    },
-    {
-      id: 2,
-      name: "Product 2",
-      price: 29.99,
-      image: "https://example.com/product2.jpg",
-      category: "Electronics",
-    },
-    {
-      id: 3,
-      name: "Product 3",
-      price: 39.99,
-      image: "https://example.com/product3.jpg",
-      category: "Books",
-    },
-
-    {
-      id: 7,
-      name: "Product 3",
-      price: 39.99,
-      image: "https://example.com/product3.jpg",
-      category: "Home",
-
-      
-    },
   ]);
 
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedProducts, setSelectedProducts] = useState([]);
 
-  const categories = ["All", "Apparel", "Electronics", "Books", "Miscellaneous", "Home",];
+  const categories = ["All", "Apparel", "Electronics", "Books", "Miscellaneous", "Home"];
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
+  };
+
+  const handleProductSelect = (selectedProduct) => {
+    setSelectedProducts((prevSelected) => [...prevSelected, selectedProduct]);
   };
 
   const filteredProducts = selectedCategory === "All"
@@ -83,7 +57,7 @@ const ForumProducts = () => {
 
       <ul>
         {filteredProducts.map((product) => (
-          <li key={product.id}>
+          <li key={product.id} onClick={() => handleProductSelect(product)}>
             <img
               src={product.image}
               alt={product.name}
@@ -93,6 +67,9 @@ const ForumProducts = () => {
           </li>
         ))}
       </ul>
+          
+      {/* Display selected products in ForumOrders */}
+      <ForumOrders selectedProducts={selectedProducts} />
     </div>
   );
 };
