@@ -31,12 +31,21 @@ const ForumProducts = () => {
       image: "https://example.com/product3.jpg",
       category: "Books",
     },
-    // Add more products with different categories
+
+    {
+      id: 7,
+      name: "Product 3",
+      price: 39.99,
+      image: "https://example.com/product3.jpg",
+      category: "Home",
+
+      
+    },
   ]);
 
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const categories = ["All", "Apparel", "Electronics", "Books", "Miscellaneous"];
+  const categories = ["All", "Apparel", "Electronics", "Books", "Miscellaneous", "Home",];
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
