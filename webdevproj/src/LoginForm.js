@@ -1,45 +1,30 @@
+// LoginForm.js
 import React from "react";
 import { useForm } from "react-hook-form";
 
 const LoginForm = ({ onLogin, onToggleSignup }) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    // Assuming you are using "email" as the name for the email field
-    onLogin(data.email);
+    onLogin(data.username);
   };
 
   return (
-    <div className="container">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>Email:</label>
-        <input
-          type="text"
-          {...register("email", { required: "Email is required" })}
-        />
-        <br />
-        {errors.email && <p>{errors.email.message}</p>}
-        <br />
-        <label>Password:</label>
-        <input
-          type="password"
-          {...register("password", { required: "Password is required" })}
-        />
-        <br />
-        {errors.password && <p>{errors.password.message}</p>}
-        <br />
-        <button type="submit">Login</button>
-      </form>
-      <br />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>
+        Username:
+        <input {...register("username")} />
+      </label>
+      <label>
+        Password:
+        <input type="password" {...register("password")} />
+      </label>
+      <button type="submit">Login</button>
       <p>
-        Don't have an account? <button onClick={onToggleSignup}>Sign Up</button>
+        Don't have an account?{" "}
+        <span onClick={onToggleSignup}>Sign up</span>
       </p>
-    </div>
+    </form>
   );
 };
 
