@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ForumHome = ({ user }) => (
   <div>
@@ -8,7 +9,10 @@ const ForumHome = ({ user }) => (
     {/* Search bar */}
     <div className="search-container">
       <input type="text" placeholder="Search..." />
-      <button type="submit">Search</button>
+      {/* Use Link to navigate to the order page */}
+      <Link to="/products">
+        <button type="submit">Search</button>
+      </Link>
     </div>
   </div>
 );
