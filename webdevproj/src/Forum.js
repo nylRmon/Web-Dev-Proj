@@ -6,14 +6,8 @@ import ForumOrders from "./ForumOrders";
 import { Category } from "@material-ui/icons";
 
 const Forum = ({ user }) => {
-    const navigate = useNavigate();
-    const { id } = useParams();
-    const {selectedCategory, setSelectedCategory} = useState("Dormitory Rental");
-
-    const handleCategoryChange = (Category) => {
-      setSelectedCategory(Category);
-    }
-
+  const navigate = useNavigate();
+  const { id } = useParams();
   
     return (
       <div>
@@ -23,18 +17,7 @@ const Forum = ({ user }) => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/products">Category</Link>
-              <div>
-                <select
-                  value={selectedCategory}
-                  onChange={(e) => handleCategoryChange(e.target.value)}
-                >
-                  <option value="Dormitory Rental">Dormitory Rental</option>
-                  <option value="Computer & Tech">Computer & Tech</option>
-                  <option value="Food & Drinks">Food & Drinks</option>
-                  <option value="Free Items">Free Items</option>
-              </select>
-              </div>
+              <Link to="/products">Product</Link>
             </li>
             <li>
               <Link to="/orders">Orders</Link>
@@ -44,10 +27,7 @@ const Forum = ({ user }) => {
   
         <Routes>
           <Route path="/" element={<ForumHome user={user} />} />
-          <Route
-            path="/products"
-            element={<ForumProducts category={selectedCategory} />}
-          />
+          <Route path="/products" element={<ForumProducts />} />
           <Route path="/orders" element={<ForumOrders />} />
         </Routes>
       </div>
