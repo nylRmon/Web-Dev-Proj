@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import ForumOrders from "./ForumOrders"; 
 
 const ForumProducts = () => {
@@ -58,12 +59,15 @@ const ForumProducts = () => {
       <ul>
         {filteredProducts.map((product) => (
           <li key={product.id} onClick={() => handleProductSelect(product)}>
-            <img
-              src={product.image}
-              alt={product.name}
-              style={{ width: '40px', height: '40px', marginRight: '10px' }}
-            />
-            <strong>{product.name}</strong> - ${product.price} - {product.category}
+            {/* Use Link to navigate to the product details page */}
+            <Link to={`/product/${product.id}`}>
+              <img
+                src={product.image}
+                alt={product.name}
+                style={{ width: '40px', height: '40px', marginRight: '10px' }}
+              />
+              <strong>{product.name}</strong> - ${product.price} - {product.category}
+            </Link>
           </li>
         ))}
       </ul>
