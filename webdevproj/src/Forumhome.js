@@ -1,9 +1,9 @@
 import React from "react";
 import "./ForumHome.css"; // Import your CSS file
 
-const ForumHome = ({ user }) => (
+
+const Forumhome = ({ user }) => (
   <div className="home-container">
-    {/* Featured Products */}
     <section className="hero" id="home" style={{ backgroundImage: `url('./assets/images/hero-banner.jpg')` }}>
       <div className="container1">
         <div className="hero-content">
@@ -182,4 +182,4 @@ const ForumHome = ({ user }) => (
   </div>
 );
 
-export default ForumHome;
+export default Forumhome;

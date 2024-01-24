@@ -6,7 +6,6 @@ const SignupForm = ({ onSignup, onToggleSignup }) => {
   const { register, handleSubmit, watch, setError } = useForm();
 
   const onSubmit = (data) => {
-    // Validate password confirmation
     if (data.password !== data.confirmPassword) {
       setError("confirmPassword", {
         type: "manual",
@@ -15,7 +14,7 @@ const SignupForm = ({ onSignup, onToggleSignup }) => {
       return;
     }
 
-    // Handle signup logic with data.username and data.password
+    
     onSignup(data.username);
   };
 
