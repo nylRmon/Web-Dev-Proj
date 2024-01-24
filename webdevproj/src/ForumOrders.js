@@ -1,8 +1,8 @@
-import ForumProducts from "./ForumProducts"; 
+
 import React from "react";
 
 const ForumOrders = ({ selectedProducts }) => {
-  console.log("Selected Products in ForumOrders:", selectedProducts); // Add this line for debugging
+  console.log("Selected Products in ForumOrders:", selectedProducts); 
 
   if (!Array.isArray(selectedProducts) || selectedProducts.length === 0) {
     return (

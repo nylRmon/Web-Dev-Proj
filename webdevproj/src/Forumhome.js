@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./ForumHome.css"; // Import your CSS file
+import "./ForumHome.css"; 
 
-const ForumHome = ({ user }) => (
+const Forumhome = ({ user }) => (
   <div className="home-container">
     <header>
       <h2>Welcome to Shopping Kingdom, {user}!</h2>
@@ -12,7 +12,7 @@ const ForumHome = ({ user }) => (
     {/* Search bar */}
     <div className="search-container">
       <input type="text" placeholder="Search for products..." />
-      <Link to="/products">
+      <Link to="/ForumProducts">
         <button type="submit">Search</button>
       </Link>
     </div>
@@ -55,4 +55,4 @@ const ForumHome = ({ user }) => (
   </div>
 );
 
-export default ForumHome;
+export default Forumhome;
