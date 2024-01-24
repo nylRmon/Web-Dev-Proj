@@ -202,7 +202,7 @@ h3 > a { color: inherit; }
   align-items: center;
 }
 
-.hero .container1 { width: 100%; }
+.hero .service_container { width: 100%; }
 
 .hero-subtitle {
   color: var(--eerie-black);
