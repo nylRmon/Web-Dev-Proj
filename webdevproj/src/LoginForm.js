@@ -1,14 +1,30 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './LoginForm.css';
+import './Forum';
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const [isSignUpMode, setSignUpMode] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSignUpClick = () => {
     setSignUpMode(true);
   };
 
-  const handleSignInClick = () => {
+  const handleSignInClick = (e) => {
+    e.preventDefault();
+
+    // Check if username and password are not empty
+    if (!username.trim() || !password.trim()) {
+      alert("Please enter both username and password");
+      return;
+    }
+
+    // Proceed with login
+    console.log("Sign in button clicked");
+    navigate('/Forum');
     setSignUpMode(false);
   };
 
@@ -16,35 +32,49 @@ const LoginForm = () => {
     <div className={`container ${isSignUpMode ? 'sign-up-mode' : ''}`}>
       <div className="forms-container">
         <div className="signin-signup">
-          <form action="#" className="sign-in-form">
+          <form
+            action="#"
+            className="sign-in-form"
+            onSubmit={(e) => { e.preventDefault(); handleSignInClick(e); }}
+          >
             <h2 className="title">Sign in</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+            <div className="input-field">
+              <i className="fas fa-user"></i>
+              <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
             </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+            <div className="input-field">
+              <i className="fas fa-lock"></i>
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
-            <input type="submit" value="Login" class="btn solid" />
-            <p class="social-text">Or Sign in with social platforms</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
+            <input type="submit" value="Login" className="btn solid" />
+            <p className="social-text">Or Sign in with social platforms</p>
+            <div className="social-media">
+              <a href="#" className="social-icon">
+                <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
+              <a href="#" className="social-icon">
+                <i className="fab fa-twitter"></i>
               </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
+              <a href="#" className="social-icon">
+                <i className="fab fa-google"></i>
               </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
+              <a href="#" className="social-icon">
+                <i className="fab fa-linkedin-in"></i>
               </a>
             </div>
           </form>
           <form action="#" className="sign-up-form">
-          <h2 className="title">Sign up</h2>
+            <h2 className="title">Sign up</h2>
             <div className="input-field">
               <i className="fas fa-user"></i>
               <input type="text" placeholder="Username" />
@@ -58,18 +88,18 @@ const LoginForm = () => {
               <input type="password" placeholder="Password" />
             </div>
             <input type="submit" className="btn" value="Sign up" />
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
+            <div className="social-media">
+              <a href="#" className="social-icon">
+                <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
+              <a href="#" className="social-icon">
+                <i className="fab fa-twitter"></i>
               </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
+              <a href="#" className="social-icon">
+                <i className="fab fa-google"></i>
               </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
+              <a href="#" className="social-icon">
+                <i className="fab fa-linkedin-in"></i>
               </a>
             </div>
           </form>

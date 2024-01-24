@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import "./App.css";
-import {BrowserRouter as Router,Link,Route,Routes,useParams, useNavigate,} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import LoginForm from "./LoginForm";
-import SignupForm from "./SignupForm";  
-import Forum from "./Forum";    
-
+import SignupForm from "./SignupForm";
+import Forum from "./Forum";
+import ForumProducts from "./ForumProducts"; 
+import "./App.css"
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -26,25 +25,32 @@ const App = () => {
 
   return (
     <Router>
-      <div>
-        {!user ? (
-          <LoginForm
-            onLogin={handleLogin}
-            onToggleSignup={handleToggleSignup}
-          />
-        ) : (
-          <Forum user={user} />
-        )}
-        {showSignup && (
-          <SignupForm
-            onSignup={handleSignup}
-            onToggleSignup={handleToggleSignup}
-          />
-        )}
-      </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            !user ? (
+              <LoginForm onLogin={handleLogin} onToggleSignup={handleToggleSignup} />
+            ) : (
+              <Forum user={user} />
+            )
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            showSignup ? (
+              <SignupForm onSignup={handleSignup} onToggleSignup={handleToggleSignup} />
+            ) : (
+              <Navigate to="/" replace />
+            )
+          }
+        />
+        <Route path="/Forum" element={<Forum user={user} />} />
+        <Route path="/ForumProducts" element={<ForumProducts />} /> {/* Add route for ForumProducts */}
+      </Routes>
     </Router>
   );
-  
 };
 
 export default App;

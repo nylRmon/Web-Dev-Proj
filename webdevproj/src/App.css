@@ -1,6 +1,4 @@
 /* Home Navigation Styles */
-
-
 nav {
   background-color: #232f3e;
   padding: 10px;
@@ -20,15 +18,16 @@ ul {
 }
 
 li {
-  margin-right: 10px;
+  margin-right: 8px; 
 }
 
 a {
   color: white;
   text-decoration: none;
-  padding: 8px 16px;
+  padding: 8px 12px; 
   border-radius: 4px;
   transition: background-color 0.3s;
+  font-size: 14px; 
 }
 
 a:hover {
@@ -38,7 +37,8 @@ a:hover {
 #home-link {
   margin-right: auto;
 }
-/*Search-bar*/
+
+
 .search-container input {
   flex: 1;
   padding: 8px;
@@ -48,7 +48,7 @@ a:hover {
 
 .search-container button {
   padding: 8px;
-  background-color: #344955; /* Match the navigation bar hover color */
+  background-color: #344955;
   color: #fff;
   border: none;
   border-radius: 0 4px 4px 0;
@@ -57,5 +57,5 @@ a:hover {
 }
 
 .search-container button:hover {
-  background-color: #232f3e; /* Darker shade on hover */
+  background-color: #232f3e;
 }
