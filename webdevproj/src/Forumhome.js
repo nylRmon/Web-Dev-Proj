@@ -14,7 +14,7 @@ const Forumhome = ({ user }) => (
       </div>
     </section>
     <section className="service">
-      <div className="container">
+      <div className="service_container">
         <ul className="service-list">
           {[
             { icon: "./service-icon-1.svg", title: "Free Shipping", text: "On All Orders Over $599" },
