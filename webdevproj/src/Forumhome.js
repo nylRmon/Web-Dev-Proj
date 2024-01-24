@@ -1,57 +1,184 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./ForumHome.css"; 
+import "./ForumHome.css"; // Import your CSS file
+
 
 const Forumhome = ({ user }) => (
   <div className="home-container">
-    <header>
-      <h2>Welcome to Shopping Kingdom, {user}!</h2>
-      <p>Your one-stop destination for online shopping.</p>
-    </header>
-
-    {/* Search bar */}
-    <div className="search-container">
-      <input type="text" placeholder="Search for products..." />
-      <Link to="/ForumProducts">
-        <button type="submit">Search</button>
-      </Link>
-    </div>
-
-    {/* Featured Products */}
-    <section className="featured-products">
-      <h3>Featured Products</h3>
-      <div className="product">
-        <img src="product1.jpg" alt="Product 1" />
-        <p>Product Name 1</p>
-        <span>$19.99</span>
+    <section className="hero" id="home" style={{ backgroundImage: `url('./assets/images/hero-banner.jpg')` }}>
+      <div className="container1">
+        <div className="hero-content">
+          <p className="hero-subtitle">We've got what you need, you've got what we want</p>
+          <h2 className="h1 hero-title">TUP Marketplace</h2>
+          <button className="btn btn-primary">Shop Now</button>
+        </div>
       </div>
-
-      <div className="product">
-        <img src="product2.jpg" alt="Product 2" />
-        <p>Product Name 2</p>
-        <span>$29.99</span>
-      </div>
-
-      {/* Add more featured products as needed */}
     </section>
-
-    {/* Special Offers */}
-    <section className="special-offers">
-      <h3>Special Offers</h3>
-      <div className="offer">
-        <img src="offer1.jpg" alt="Offer 1" />
-        <p>Special Offer 1</p>
-        <span>50% off</span>
+    <section className="service">
+      <div className="container">
+        <ul className="service-list">
+          {[
+            { icon: "./service-icon-1.svg", title: "Free Shipping", text: "On All Orders Over $599" },
+            { icon: "./service-icon-2.svg", title: "Easy Returns", text: "30 Day Returns Policy" },
+            { icon: "./service-icon-3.svg", title: "Secure Payment", text: "100% Secure Guarantee" },
+            { icon: "./service-icon-4.svg", title: "Special Support", text: "24/7 Dedicated Support" },
+          ].map((item, index) => (
+            <li className="service-item" key={index}>
+              <div className="service-item-icon">
+                <img src={item.icon} alt="Service icon" />
+              </div>
+              <div className="service-content">
+                <p className="service-item-title">{item.title}</p>
+                <p className="service-item-text">{item.text}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
-
-      <div className="offer">
-        <img src="offer2.jpg" alt="Offer 2" />
-        <p>Special Offer 2</p>
-        <span>Free Shipping</span>
-      </div>
-
-      {/* Add more special offers as needed */}
     </section>
+    <section class="section product">
+        <div class="container1">
+          <h2 class="h2 section-title">Featured Products</h2>
+          <ul class="product-list">
+
+            <li>
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  <a href="#">
+                    <img src="./product-1.jpg" alt="Varsi Leather Bag" loading="lazy" width="800"
+                      height="1034" class="w-100"/>
+                  </a>
+
+                  <div class="card-badge red"> -25%</div>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="#">School Bag</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="600.00">600PHP</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  <a href="#">
+                    <img src="./product-2.jpg" alt="Fit Twill Shirt for Woman" loading="lazy" width="800"
+                      height="1034" class="w-100"/>
+                  </a>
+
+                  <div class="card-badge green"> New</div>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="#">Fit Twill Shirt for Woman</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="300.00">300PHP</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="product-card">
+
+                <figure class="card-banner">
+
+                  <a href="#">
+                    <img src="./product-3.jpg" alt="Grand Atlantic Chukka Boots" loading="lazy"
+                      width="800" height="1034" class="w-100"/>
+                  </a>
+
+                  <div class="card-actions">
+
+                    <button class="card-action-btn" aria-label="Quick view">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </button>
+
+                    <button class="card-action-btn cart-btn">
+                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+                      <p>Add to Cart</p>
+                    </button>
+
+                    <button class="card-action-btn" aria-label="Add to Whishlist">
+                      <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                  </div>
+
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h4 card-title">
+                    <a href="#">Grand Atlantic Chukka Boots</a>
+                  </h3>
+
+                  <div class="card-price">
+                    <data value="1000PHP">1000PHP</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+          <button class="btn btn-outline">View All Products</button>
+
+        </div>
+      </section>
   </div>
 );
 
