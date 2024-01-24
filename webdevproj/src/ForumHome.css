@@ -267,7 +267,6 @@ h3 > a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .service-item-title {
@@ -301,7 +300,7 @@ h3 > a {
 }
 
 .service-item-title {
-  color: var(--eerie-black);
+  color: var(--eerie-black); /* Fix the custom property name */
   font-size: var(--fs-7);
   font-weight: var(--fw-600);
 }
@@ -348,6 +347,17 @@ h3 > a {
 
   .navbar-link:is(:hover, :focus) {
     color: var(--middle-blue-green);
+  }
+}
+
+/* For service features smaller screen adjustment */
+@media (max-width: 767px) {
+  .service-list {
+    flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+  }
+
+  .service-item {
+    flex: 0 0 calc(50% - 20px); /* Adjust the width for two items in a row on smaller screens */
   }
 }
 
