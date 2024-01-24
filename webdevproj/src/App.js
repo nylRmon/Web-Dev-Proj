@@ -4,7 +4,7 @@ import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import Forum from "./Forum";
 import ForumProducts from "./ForumProducts"; 
-import "./App.css"
+import "./App.css";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -32,7 +32,7 @@ const App = () => {
             !user ? (
               <LoginForm onLogin={handleLogin} onToggleSignup={handleToggleSignup} />
             ) : (
-              <Forum user={user} />
+              <Navigate to="/Forum" replace />
             )
           }
         />
@@ -47,7 +47,7 @@ const App = () => {
           }
         />
         <Route path="/Forum" element={<Forum user={user} />} />
-        <Route path="/ForumProducts" element={<ForumProducts />} /> {/* Add route for ForumProducts */}
+        <Route path="/ForumProducts" element={<ForumProducts />} />
       </Routes>
     </Router>
   );
