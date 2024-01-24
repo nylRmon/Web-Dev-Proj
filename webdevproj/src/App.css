@@ -1,6 +1,6 @@
 /* Home Navigation Styles */
 nav {
-  background-color: whitesmoke;
+  background-color: rgb(221, 169, 169);
   padding: 10px;
   display: flex;
   justify-content: flex-end;
@@ -18,16 +18,16 @@ ul {
 }
 
 li {
-  margin-right: 8px; 
+  margin-right: 8px;
 }
 
 a {
   color: white;
   text-decoration: none;
-  padding: 8px 12px; 
+  padding: 8px 12px;
   border-radius: 4px;
   transition: background-color 0.3s;
-  font-size: 14px; 
+  font-size: 14px;
 }
 
 a:hover {
@@ -37,7 +37,6 @@ a:hover {
 #home-link {
   margin-right: auto;
 }
-
 
 .search-container input {
   flex: 1;
