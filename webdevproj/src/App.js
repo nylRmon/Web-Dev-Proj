@@ -47,7 +47,8 @@ const App = () => {
           }
         />
         <Route path="/Forum" element={<Forum user={user} />} />
-        <Route path="/ForumProducts" element={<ForumProducts />} /> {/* Add route for ForumProducts */}
+        <Route path="/ForumProducts" element={<ForumProducts />} /> 
+        <Route path="/" exact component={ForumProducts} />
       </Routes>
     </Router>
   );

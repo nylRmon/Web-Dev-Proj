@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
-import ForumOrders from "./ForumOrders"; 
+import { Link } from "react-router-dom";
+import ForumOrders from "./ForumOrders";
 
 const ForumProducts = () => {
   const [products, setProducts] = useState([
@@ -11,6 +11,7 @@ const ForumProducts = () => {
       image: "/appe2.jpg",
       category: "Apparel",
     },
+    // Add more products as needed
   ]);
 
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -23,7 +24,17 @@ const ForumProducts = () => {
   };
 
   const handleProductSelect = (selectedProduct) => {
-    setSelectedProducts((prevSelected) => [...prevSelected, selectedProduct]);
+    setSelectedProducts((prevSelected) => [...prevSelected, { ...selectedProduct, count: 1 }]);
+  };
+
+  const handleProductRemove = (productId) => {
+    setSelectedProducts((prevSelected) =>
+      prevSelected.filter((product) => product.id !== productId)
+    );
+  };
+
+  const calculateTotal = () => {
+    return selectedProducts.reduce((total, product) => total + product.price * product.count, 0);
   };
 
   const filteredProducts = selectedCategory === "All"
@@ -58,8 +69,7 @@ const ForumProducts = () => {
 
       <ul>
         {filteredProducts.map((product) => (
-          <li key={product.id} onClick={() => handleProductSelect(product)}>
-            {/* Use Link to navigate to the product details page */}
+          <li key={product.id}>
             <Link to={`/product/${product.id}`}>
               <img
                 src={product.image}
@@ -68,12 +78,18 @@ const ForumProducts = () => {
               />
               <strong>{product.name}</strong> - ${product.price} - {product.category}
             </Link>
+            <button onClick={() => handleProductSelect(product)}>
+              Add to Orders
+            </button>
           </li>
         ))}
       </ul>
-          
-      {/* Display selected products in ForumOrders */}
-      <ForumOrders selectedProducts={selectedProducts} />
+
+      <ForumOrders
+        selectedProducts={selectedProducts}
+        onProductRemove={handleProductRemove}
+        calculateTotal={calculateTotal}
+      />
     </div>
   );
 };
