@@ -256,8 +256,44 @@ h3 > a {
   color: black;
   /* Adjust the background color and opacity for the highlight effect */
 }
+
+.service {
+  padding-block: var(--section-padding);
+  text-align: center;
+}
+
+
+.service-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.service-item-title {
+  color: var(--aerie--black);
+  font-size: var(--fs--7);
+  font-weight: var(--fw-600);
+  margin-bottom: 10px;
+}
+
+.service-item-text{
+  font-size: var(--fs-8);
+  color: var(--sonic-silver);
+}
+
+.service-item {
+  flex: 0 0 calc(25% - 20px); /* Adjust the width of each item for four items in a row */
+  margin-bottom: 20px;
+}
+
 .service-item-icon {
   width: 45px;
+  margin-inline: auto;
+}
+
+.service-content {
+  text-align: center;
 }
 
 .service-item-icon img {
