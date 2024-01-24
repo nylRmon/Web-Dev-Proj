@@ -202,7 +202,7 @@ h3 > a {
 .hero {
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: left;
+  background-position: center;
   width: 100%;
   min-height: 80vh;
   display: flex;
