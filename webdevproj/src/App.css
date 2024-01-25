@@ -1,6 +1,6 @@
 /* Home Navigation Styles */
 nav {
-  background-color: rgb(221, 169, 169);
+  background-color: black;
   padding: 10px;
   display: flex;
   justify-content: flex-end;
@@ -26,8 +26,27 @@ a {
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 4px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, border-bottom 0.3s;
   font-size: 14px;
+  position: relative; /* Add relative positioning for the pseudo-element */
+}
+
+a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff; /* Set the color of the underline */
+  transform: scaleX(0); /* Initially, set the scale to 0 (invisible) */
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-in-out; /* Add transition for the transform property */
+}
+
+a:hover::before {
+  transform: scaleX(1); /* Scale the underline to full width on hover */
+  transform-origin: bottom left;
 }
 
 a:hover {

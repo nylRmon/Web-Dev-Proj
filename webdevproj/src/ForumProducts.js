@@ -17,8 +17,36 @@ const ForumProducts = () => {
       id: 2,
       name: "LIBRO NI ASH",
       price: 19.99,
-      image: "/appe2.jpg",
+      image: "/book.png",
       category: "Books",
+    },
+    {
+      id: 3,
+      name: "Refrigirator",
+      price: 499.99,
+      image: "/refrigirator.png",
+      category: "Electronics",
+    },
+    {
+      id: 4,
+      name: "Pens",
+      price: 2,
+      image: "/pen.png",
+      category: "Arts",
+    },
+    {
+      id: 5,
+      name: "TV",
+      price: 299.99,
+      image: "/tv.png",
+      category: "Electronics",
+    },
+    {
+      id: 6,
+      name: "Chair",
+      price: 10.99,
+      image: "/chair.png",
+      category: "Miscellaneous",
     },
     // Add more products as needed
   ]);
@@ -27,23 +55,37 @@ const ForumProducts = () => {
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [paymentComplete, setPaymentComplete] = useState(false);
 
-  const categories = ["All", "Apparel", "Electronics", "Books", "Miscellaneous", "Arts"];
+  const categories = [
+    "All",
+    "Apparel",
+    "Electronics",
+    "Books",
+    "Miscellaneous",
+    "Arts",
+  ];
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
   };
 
   const handleProductSelect = (selectedProduct) => {
-    const existingProduct = selectedProducts.find((product) => product.id === selectedProduct.id);
+    const existingProduct = selectedProducts.find(
+      (product) => product.id === selectedProduct.id
+    );
 
     if (existingProduct) {
       setSelectedProducts((prevSelected) =>
         prevSelected.map((product) =>
-          product.id === selectedProduct.id ? { ...product, count: product.count + 1 } : product
+          product.id === selectedProduct.id
+            ? { ...product, count: product.count + 1 }
+            : product
         )
       );
     } else {
-      setSelectedProducts((prevSelected) => [...prevSelected, { ...selectedProduct, count: 1 }]);
+      setSelectedProducts((prevSelected) => [
+        ...prevSelected,
+        { ...selectedProduct, count: 1 },
+      ]);
     }
   };
 
@@ -58,7 +100,10 @@ const ForumProducts = () => {
   };
 
   const calculateTotal = () => {
-    return selectedProducts.reduce((total, product) => total + product.price * product.count, 0);
+    return selectedProducts.reduce(
+      (total, product) => total + product.price * product.count,
+      0
+    );
   };
 
   const filteredProducts =
@@ -92,10 +137,17 @@ const ForumProducts = () => {
         {filteredProducts.map((product) => (
           <li key={product.id}>
             <Link to={`/product/${product.id}`}>
-              <img src={product.image} alt={product.name} className="product-image" />
-              <strong>{product.name}</strong> - ${product.price} - {product.category}
+              <img
+                src={product.image}
+                alt={product.name}
+                className="product-image"
+              />
+              <strong>{product.name}</strong> - ${product.price} -{" "}
+              {product.category}
             </Link>
-            <button onClick={() => handleProductSelect(product)}>Add to Orders</button>
+            <button onClick={() => handleProductSelect(product)}>
+              Add to Orders
+            </button>
           </li>
         ))}
       </ul>
@@ -109,9 +161,11 @@ const ForumProducts = () => {
             <ul>
               {selectedProducts.map((product) => (
                 <li key={product.id}>
-                  <strong>{product.name}</strong> - ${product.price} - {product.category} - Count:{" "}
-                  {product.count}
-                  <button onClick={() => handleProductRemove(product.id)}>Remove Order</button>
+                  <strong>{product.name}</strong> - ${product.price} -{" "}
+                  {product.category} - Count: {product.count}
+                  <button onClick={() => handleProductRemove(product.id)}>
+                    Remove Order
+                  </button>
                 </li>
               ))}
             </ul>
