@@ -208,7 +208,7 @@ h3 > a {
   display: flex;
   align-items: center;
   background-image: "/tup_background.png";
-  background-size: 1500px 600px; /* Adjust this property for optimal resolution */
+  background-size: 1500px 700px; /* Adjust this property for optimal resolution */
   background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -262,7 +262,6 @@ h3 > a {
   text-align: center;
 }
 
-
 .service-list {
   display: flex;
   justify-content: space-between;
@@ -276,7 +275,7 @@ h3 > a {
   margin-bottom: 10px;
 }
 
-.service-item-text{
+.service-item-text {
   font-size: var(--fs-8);
   color: var(--sonic-silver);
 }
