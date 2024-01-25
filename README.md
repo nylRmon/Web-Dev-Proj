@@ -1,6 +1,6 @@
 # Web-Dev-Proj
 
-John Christian Codillo 
-Alvin Guatato
-Nyl Raemon Leonardo
-Ash Tinao
+John Christian Codillo - ReactJs
+Alvin Guatato - ReactJs
+Nyl Raemon Leonardo - ReactJs
+Ash Tinao - ReactJs
