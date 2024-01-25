@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Routes, Route, useNavigate } from "react-router-dom";
 import Forumhome from "./Forumhome";
 import ForumProducts from "./ForumProducts";
-import ForumOrders from "./ForumOrders";
+import AboutUs from "./About";
 import LoginForm from "./LoginForm";
 import "./App.css";
 
@@ -10,7 +10,6 @@ const Forum = ({ user }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Use navigate to go to the login page
     navigate("/");
   };
 
@@ -25,11 +24,11 @@ const Forum = ({ user }) => {
             <Link to="/ForumProducts">Products</Link>
           </li>
           <li>
-            <Link to="/ForumOrders">Orders</Link>
+            <Link to="/About">About</Link>
           </li>
-          {/* Add a logout button */}
+          {/* Replace the logout button with a Link component */}
           <li>
-            <button onClick={handleLogout}>Logout</button>
+            <Link to="/" onClick={handleLogout}>Logout</Link>
           </li>
         </ul>
       </nav>
@@ -37,7 +36,7 @@ const Forum = ({ user }) => {
       <Routes>
         <Route path="/" element={<Forumhome user={user} />} />
         <Route path="/ForumProducts" element={<ForumProducts />} />
-        <Route path="/ForumOrders" element={<ForumOrders />} />
+        <Route path="/About" element={<AboutUs />} />
         <Route path="/LoginForm" element={<LoginForm />} />
       </Routes>
     </div>

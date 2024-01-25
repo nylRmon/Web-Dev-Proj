@@ -1,8 +1,14 @@
 .centered-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
     text-align: center;
+  }
+  
+  .category-container {
+    display: flex;
+    justify-content: center; 
+    margin-top: 10px;
   }
   
   .category-button {
@@ -13,6 +19,7 @@
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 5px;
+    margin-top: 1px;
   }
   
   .product-image {
@@ -20,4 +27,3 @@
     height: 40px;
     margin-right: 10px;
   }
-  

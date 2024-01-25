@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import Forum from "./Forum";
-import ForumProducts from "./ForumProducts"; 
+import ForumProducts from "./ForumProducts";
+import AboutUs from "./About"; 
 import "./App.css";
 
 const App = () => {
@@ -25,6 +26,23 @@ const App = () => {
 
   return (
     <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/Forum">Home</Link>
+            </li>
+            <li>
+            </li>
+            <li>
+    
+            </li>
+            <li>
+              <Link to="/About">About</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <Routes>
         <Route
           path="/"
@@ -48,6 +66,7 @@ const App = () => {
         />
         <Route path="/Forum" element={<Forum user={user} />} />
         <Route path="/ForumProducts" element={<ForumProducts />} />
+        <Route path="/About" element={<AboutUs />} />
       </Routes>
     </Router>
   );
