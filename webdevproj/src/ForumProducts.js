@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./ForumProduct.css"; 
+import { Link, useNavigate } from "react-router-dom";
+import "./ForumProduct.css";
 
 const ForumProducts = () => {
+  const navigate = useNavigate();
+
   const [products, setProducts] = useState([
     {
       id: 1,
@@ -18,14 +20,14 @@ const ForumProducts = () => {
       image: "/appe2.jpg",
       category: "Books",
     },
-    // Add more products 
+    // Add more products as needed
   ]);
 
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [paymentComplete, setPaymentComplete] = useState(false);
 
-  const categories = ["All", "Apparel", "Electronics", "Books", "Miscellaneous", "Home"];
+  const categories = ["All", "Apparel", "Electronics", "Books", "Miscellaneous", "Arts"];
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
@@ -59,16 +61,21 @@ const ForumProducts = () => {
     return selectedProducts.reduce((total, product) => total + product.price * product.count, 0);
   };
 
-  const filteredProducts = selectedCategory === "All"
-    ? products
-    : products.filter((product) => product.category === selectedCategory);
+  const filteredProducts =
+    selectedCategory === "All"
+      ? products
+      : products.filter((product) => product.category === selectedCategory);
 
   return (
-    <div className="centered-container"> 
+    <div className="centered-container">
+      <div className="homebutton">
+        <button onClick={() => navigate("/Forum")}>Go to Home</button>
+      </div>
+
       <h2>Products</h2>
       <p>Explore the latest and discussions.</p>
 
-      <div>
+      <div className="category-container">
         <strong>Categories:</strong>
         {categories.map((category) => (
           <button
@@ -85,11 +92,7 @@ const ForumProducts = () => {
         {filteredProducts.map((product) => (
           <li key={product.id}>
             <Link to={`/product/${product.id}`}>
-              <img
-                src={product.image}
-                alt={product.name}
-                className="product-image" 
-              />
+              <img src={product.image} alt={product.name} className="product-image" />
               <strong>{product.name}</strong> - ${product.price} - {product.category}
             </Link>
             <button onClick={() => handleProductSelect(product)}>Add to Orders</button>
@@ -106,7 +109,8 @@ const ForumProducts = () => {
             <ul>
               {selectedProducts.map((product) => (
                 <li key={product.id}>
-                  <strong>{product.name}</strong> - ${product.price} - {product.category} - Count: {product.count}
+                  <strong>{product.name}</strong> - ${product.price} - {product.category} - Count:{" "}
+                  {product.count}
                   <button onClick={() => handleProductRemove(product.id)}>Remove Order</button>
                 </li>
               ))}
