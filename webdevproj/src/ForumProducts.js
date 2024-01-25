@@ -8,45 +8,52 @@ const ForumProducts = () => {
   const [products, setProducts] = useState([
     {
       id: 1,
-      name: "Product 1",
-      price: 299,
+      name: "Preloved CLothing Assorted",
+      price: 19.99,
       image: "/appe2.jpg",
       category: "Apparel",
     },
     {
       id: 2,
       name: "LIBRO NI ASH",
-      price: 149,
+      price: 200,
       image: "/book.png",
       category: "Books",
     },
     {
       id: 3,
-      name: "Refrigirator",
-      price: 249,
-      image: "/refrigirator.png",
+      name: "Raspberry Pico",
+      price: 499.99,
+      image: "/raspberry.png",
       category: "Electronics",
     },
     {
       id: 4,
       name: "Pens",
-      price: 2,
+      price: 15,
       image: "/pen.png",
       category: "Arts",
     },
     {
       id: 5,
-      name: "TV",
-      price: 299.99,
-      image: "/tv.png",
+      name: "Keyboard",
+      price: 1499.99,
+      image: "/keyboard.png",
       category: "Electronics",
     },
     {
       id: 6,
-      name: "Chair",
-      price: 10.99,
-      image: "/chair.png",
+      name: "Ball",
+      price: 600,
+      image: "/basketball.png",
       category: "Miscellaneous",
+    },
+    {
+      id: 3,
+      name: "No.1 Slave",
+      price: 600,
+      image: "/steve.jpg",
+      category: "Slave",
     },
     // Add more products as needed
   ]);
@@ -136,13 +143,13 @@ const ForumProducts = () => {
       <ul>
         {filteredProducts.map((product) => (
           <li key={product.id}>
-            <Link to={`/product/${product.id}`}>
+            <Link to={`/product/₱{product.id}`}>
               <img
                 src={product.image}
                 alt={product.name}
                 className="product-image"
               />
-              <strong>{product.name}</strong> - Php{product.price} -{" "}
+              <strong>{product.name}</strong> - ₱{product.price} -{" "}
               {product.category}
             </Link>
             <button onClick={() => handleProductSelect(product)}>
@@ -161,7 +168,7 @@ const ForumProducts = () => {
             <ul>
               {selectedProducts.map((product) => (
                 <li key={product.id}>
-                  <strong>{product.name}</strong> - Php{product.price} -{" "}
+                  <strong>{product.name}</strong> - ₱{product.price} -{" "}
                   {product.category} - Count: {product.count}
                   <button onClick={() => handleProductRemove(product.id)}>
                     Remove Order
@@ -169,7 +176,7 @@ const ForumProducts = () => {
                 </li>
               ))}
             </ul>
-            <p>Total: Php{calculateTotal()}</p>
+            <p>Total: ₱{calculateTotal()}</p>
             {paymentComplete ? (
               <p>Payment Complete! You can go back to the forum.</p>
             ) : (

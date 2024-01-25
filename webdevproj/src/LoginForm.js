@@ -121,7 +121,7 @@ const LoginForm = () => {
               Sign up
             </button>
           </div>
-          <img src="./log.svg" className="image" alt="" />
+          <img src="./log_new.png" className="image" alt="" />
         </div>
         <div className="panel right-panel">
           <div className="content">
@@ -134,7 +134,7 @@ const LoginForm = () => {
               Sign In
             </button>
           </div>
-          <img src="./register.svg" className="image" alt="" />
+          <img src="./register_new.png" className="image" alt="" />
         </div>
       </div>
     </div>
