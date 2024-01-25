@@ -63,21 +63,15 @@ const AboutUs = () => {
 
       <section className="main-content">
         <p>
-          Welcome to our website! We are dedicated to providing valuable
-          information and services to our users. Whether you're here for
-          knowledge, entertainment, or a specific purpose, we aim to make your
-          experience enjoyable and worthwhile.
+        Greetings from our website! Our commitment lies on offering our users useful information and services. We want your experience to be pleasurable and worthwhile, regardless of whether you are here for information, enjoyment, or a specific goal.
         </p>
 
         <p>
-          Our website covers a variety of topics, including [list your main
-          topics or services]. We strive to keep our content up-to-date,
-          relevant, and user-friendly.
+        We offer a wide range of themes on our website, We make an effort to maintain our content current, pertinent, and easy to use.
         </p>
 
         <p>
-          Feel free to explore and discover what our website has to offer. If
-          you have any questions or feedback, don't hesitate to contact us.
+        Please take a look around to see what our website has to offer. Do not hesitate to contact us with any queries or comments.
         </p>
 
         {/* Include the FeedbackForm component */}
@@ -85,7 +79,8 @@ const AboutUs = () => {
       </section>
 
       <footer className="footer">
-        <p>&copy; 2024 Your Website. All rights reserved.</p>
+        <p> 2024 TUP COMMUNITY!</p>
+        <p> ALL RIGHTS RESERVED</p>
       </footer>
     </div>
   );
