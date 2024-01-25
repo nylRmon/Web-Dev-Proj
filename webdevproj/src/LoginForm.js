@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './LoginForm.css';
-import './Forum';
+import "./LoginForm.css";
+import "./Forum";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -24,18 +24,21 @@ const LoginForm = () => {
 
     // Proceed with login
     console.log("Sign in button clicked");
-    navigate('/Forum');
+    navigate("/Forum");
     setSignUpMode(false);
   };
 
   return (
-    <div className={`container ${isSignUpMode ? 'sign-up-mode' : ''}`}>
+    <div className={`container ${isSignUpMode ? "sign-up-mode" : ""}`}>
       <div className="forms-container">
         <div className="signin-signup">
           <form
             action="#"
             className="sign-in-form"
-            onSubmit={(e) => { e.preventDefault(); handleSignInClick(e); }}
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSignInClick(e);
+            }}
           >
             <h2 className="title">Sign in</h2>
             <div className="input-field">
@@ -110,7 +113,10 @@ const LoginForm = () => {
         <div className="panel left-panel">
           <div className="content">
             <h3>New here ?</h3>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, ex ratione. Aliquid!</p>
+            <p>
+              "Join now and unlock a world of unique products and incredible
+              deals!"
+            </p>
             <button className="btn transparent" onClick={handleSignUpClick}>
               Sign up
             </button>
@@ -120,9 +126,12 @@ const LoginForm = () => {
         <div className="panel right-panel">
           <div className="content">
             <h3>One of us ?</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum laboriosam ad deleniti.</p>
+            <p>
+              "Returning member? Log in to your account and continue your
+              seamless journey in our vibrant marketplace!"
+            </p>
             <button className="btn transparent" onClick={handleSignInClick}>
-              Sign in
+              Sign In
             </button>
           </div>
           <img src="./register.svg" className="image" alt="" />
