@@ -9,21 +9,21 @@ const ForumProducts = () => {
     {
       id: 1,
       name: "Product 1",
-      price: 19.99,
+      price: 299,
       image: "/appe2.jpg",
       category: "Apparel",
     },
     {
       id: 2,
       name: "LIBRO NI ASH",
-      price: 19.99,
+      price: 149,
       image: "/book.png",
       category: "Books",
     },
     {
       id: 3,
       name: "Refrigirator",
-      price: 499.99,
+      price: 249,
       image: "/refrigirator.png",
       category: "Electronics",
     },
@@ -142,7 +142,7 @@ const ForumProducts = () => {
                 alt={product.name}
                 className="product-image"
               />
-              <strong>{product.name}</strong> - ${product.price} -{" "}
+              <strong>{product.name}</strong> - Php{product.price} -{" "}
               {product.category}
             </Link>
             <button onClick={() => handleProductSelect(product)}>
@@ -161,7 +161,7 @@ const ForumProducts = () => {
             <ul>
               {selectedProducts.map((product) => (
                 <li key={product.id}>
-                  <strong>{product.name}</strong> - ${product.price} -{" "}
+                  <strong>{product.name}</strong> - Php{product.price} -{" "}
                   {product.category} - Count: {product.count}
                   <button onClick={() => handleProductRemove(product.id)}>
                     Remove Order
@@ -169,7 +169,7 @@ const ForumProducts = () => {
                 </li>
               ))}
             </ul>
-            <p>Total: ${calculateTotal()}</p>
+            <p>Total: Php{calculateTotal()}</p>
             {paymentComplete ? (
               <p>Payment Complete! You can go back to the forum.</p>
             ) : (
