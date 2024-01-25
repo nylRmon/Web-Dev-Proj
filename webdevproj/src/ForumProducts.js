@@ -48,6 +48,13 @@ const ForumProducts = () => {
       image: "/basketball.png",
       category: "Miscellaneous",
     },
+    {
+      id: 3,
+      name: "No.1 Slave",
+      price: 600,
+      image: "/steve.jpg",
+      category: "Slave",
+    },
     // Add more products as needed
   ]);
 
